@@ -1,7 +1,5 @@
 import React from "react";
-import "../assets/css/style.css"; // sesuaikan path ini sesuai struktur kamu
-import logo from "../assets/images/logo 4.png"; // ganti nama file jika perlu
-import amico from "../assets/images/amico.png";
+
 
 const Login: React.FC = () => {
   return (
@@ -9,7 +7,7 @@ const Login: React.FC = () => {
       {/* Left section with illustration */}
       <div className="left-panel">
         <div className="illustration-container">
-          <img src={amico} alt="Illustration" className="illustration" />
+          <img src="../assets/images/amico.png" alt="Illustration" />
         </div>
       </div>
 
@@ -18,7 +16,7 @@ const Login: React.FC = () => {
         <div className="form-container">
           {/* Logo */}
           <div className="logo">
-            <img src={logo} alt="ICE Institute Logo" />
+            <img src="../assets/images/logo 4.png" alt="ICE Institute Logo" />
           </div>
 
           {/* Login form */}
