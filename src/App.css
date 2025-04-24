@@ -1,38 +1,458 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f5f7f9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
+  display: flex;
   min-height: 100vh;
+}
+
+.sidebar {
+  width: 240px;
+  background-color: white;
+  border-right: 1px solid #e5e7eb;
+  padding: 20px 0;
   display: flex;
   flex-direction: column;
+}
+
+.logo-container {
+  padding: 0 20px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.logo {
+  height: 40px;
+}
+
+.nav-menu {
+  padding: 20px 0;
+  flex: 1;
+}
+
+.nav-item {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 12px 20px;
+  color: #6b7280;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background-color: #f9fafb;
+}
+
+.nav-item.active {
+  background-color: #f9e8e8;
+  color: #ef4444;
+  border-left: 3px solid #ef4444;
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icon {
+  width: 24px;
+  height: 24px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  color: #6b7280;
+}
+
+.dashboard-container {
+  padding: 30px;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #ef4444;
+}
+
+.dashboard-header p {
+  margin: 5px 0 25px;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.main-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.balance-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  flex: 1;
+}
+
+.balance-card h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.balance-amount {
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.online-users {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 20px;
+}
+
+.online-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.online-count {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.online-label {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.stat-cards-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat-card.gray {
+  background-color: #f3f4f6;
+}
+
+.stat-card.red {
+  background-color: #fee2e2;
+}
+
+.stat-card.blue {
+  background-color: #e0f2fe;
+}
+
+.stat-title {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.stat-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.details-button {
+  font-size: 12px;
+  color: #6b7280;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.charts-section1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.chart-title {
+  margin: 0 0 15px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.certificates-card {
+  margin-top: 20px;
+}
+
+.dashboard-footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-logos img {
+  height: 30px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #6b7280;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  color: #ef4444;
+}
+/* === PESERTA OUTBOUND STYLING === */
+
+/* ===== PESERTA OUTBOUND ===== */
+
+/* Title dan deskripsi */
+.outbound-header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ef4444;
+  margin-bottom: 5px;
+}
+
+.outbound-header p {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+/* Kartu Statistik */
+.stat-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card-red {
+  background: linear-gradient(135deg, #ef4444, #f87171);
+  border-radius: 12px;
+  padding: 24px;
   color: white;
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.15);
 }
 
-.App-link {
-  color: #61dafb;
+.stat-card-red h2 {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.stat-card-red .stat-number {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
+
+.stat-card-red .stat-btn {
+  font-size: 12px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Chart Section */
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.chart-box {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.chart-box h3 {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+/* Dropdown, Search, Download */
+.outbound-toolbar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.outbound-toolbar select,
+.outbound-toolbar input[type="text"] {
+  padding: 8px 12px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.download-report-btn {
+  background-color: #ef4444;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.download-report-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Tabel Peserta */
+.outbound-table {
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.03);
+}
+
+.outbound-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.outbound-table thead {
+  background-color: #f3f4f6;
+}
+
+.outbound-table th,
+.outbound-table td {
+  padding: 16px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.outbound-table th {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.outbound-table .status {
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.outbound-table .status.lulus {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.outbound-table .status.tidak-lulus {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.outbound-table .detail-btn {
+  background-color: #f3f4f6;
+  padding: 6px 12px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.outbound-table .detail-btn:hover {
+  background-color: #e5e7eb;
+}
+.charts-section {
+  display: flex;
+  flex-direction: row;/* Flexbox untuk layout horizontal */
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
