@@ -5,6 +5,7 @@ import Login from './pages/login';
 import Welcome from './pages/welcome';
 import Dashboard from './pages/dashboard';
 import Peserta from './pages/peserta';
+import Dosen from './pages/dosen';
 
 import Sidebar from './components/sidebar';
 import Header from './components/header';
@@ -38,6 +39,7 @@ const App: React.FC = () => {
         {/* Semua route yang pakai layout masuk ke sini */}
         <Route path="/" element={<MainLayout />}>
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dosen" element={<Dosen/>} />
           <Route path="peserta" element={<Peserta />} />
           {/* Tambahkan halaman lainnya di sini */}
         </Route>
