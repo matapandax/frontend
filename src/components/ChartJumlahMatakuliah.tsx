@@ -16,7 +16,8 @@ const ChartJumlahMataKuliah = () => {
       {
         data: [80, 20],
         backgroundColor: ['#ef4444', '#fca5a5'],
-        borderWidth: 1,
+        borderColor: '#ffffff', // garis pemisah slice
+        borderWidth: 2,
       },
     ],
   };
@@ -24,6 +25,8 @@ const ChartJumlahMataKuliah = () => {
   const options: ChartOptions<'pie'> = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: false,       // ❌ tidak ada animasi
+    cutout: '50%',          // ✅ donut
     plugins: {
       legend: {
         position: 'top',
@@ -31,18 +34,14 @@ const ChartJumlahMataKuliah = () => {
           font: {
             size: 14,
           },
+          color: '#374151',
         },
       },
     },
   };
 
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '350px',
-      }}
-    >
+    <div style={{ width: '100%', height: '350px' }}>
       <Pie data={data} options={options} />
     </div>
   );

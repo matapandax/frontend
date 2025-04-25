@@ -1,35 +1,46 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, Outlet } from 'react-router-dom';
+
+import Login from './pages/login';
+import Welcome from './pages/welcome';
 import Dashboard from './pages/dashboard';
 import Peserta from './pages/peserta';
-import Login from './pages/login';
+
 import Sidebar from './components/sidebar';
 import Header from './components/header';
+
 import './App.css';
+
+// 🧩 Layout untuk halaman utama dengan Sidebar & Header
+const MainLayout: React.FC = () => {
+  return (
+    <div className="app-container">
+      <Sidebar />
+      <div className="main-content">
+        <Header />
+        <Outlet /> {/* Ini akan menampung semua route anaknya */}
+      </div>
+    </div>
+  );
+};
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* Login route tanpa sidebar/header */}
-        <Route path="/login" element={<Login />} />
+        {/* Redirect root langsung ke login */}
+        <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/* Dashboard & lainnya dengan layout */}
-        <Route
-          path="*"
-          element={
-            <div className="app-container">
-              <Sidebar />
-              <div className="main-content">
-                <Header />
-                <Routes>
-                  <Route path="/" element={<Dashboard />} />
-                  <Route path="/peserta" element={<Peserta />} />
-                </Routes>
-              </div>
-            </div>
-          }
-        />
+        {/* Login dan welcome tanpa layout */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/welcome" element={<Welcome />} />
+
+        {/* Semua route yang pakai layout masuk ke sini */}
+        <Route path="/" element={<MainLayout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="peserta" element={<Peserta />} />
+          {/* Tambahkan halaman lainnya di sini */}
+        </Route>
       </Routes>
     </Router>
   );

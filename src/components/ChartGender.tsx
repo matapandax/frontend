@@ -16,7 +16,8 @@ const ChartGender = () => {
       {
         data: [60, 40],
         backgroundColor: ['#ef4444', '#fca5a5'],
-        borderWidth: 1,
+        borderColor: '#ffffff',
+        borderWidth: 2,
       },
     ],
   };
@@ -24,6 +25,8 @@ const ChartGender = () => {
   const options: ChartOptions<'pie'> = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: true, // ❌ nonaktifkan semua animasi
+    cutout: '50%',    // ✅ ubah menjadi donut
     plugins: {
       legend: {
         position: 'top',
@@ -31,6 +34,7 @@ const ChartGender = () => {
           font: {
             size: 14,
           },
+          color: '#374151',
         },
       },
     },
