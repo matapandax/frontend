@@ -6,9 +6,11 @@ import Welcome from './pages/welcome';
 import Dashboard from './pages/dashboard';
 import Peserta from './pages/peserta';
 import Dosen from './pages/dosen';
+import Detailpeserta from './pages/detailPeserta';
 
 import Sidebar from './components/sidebar';
 import Header from './components/header';
+import Footer from './components/footer';
 
 import './App.css';
 
@@ -41,6 +43,9 @@ const App: React.FC = () => {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="dosen" element={<Dosen/>} />
           <Route path="peserta" element={<Peserta />} />
+          <Route path="detail-peserta" element={<Detailpeserta />} />
+          {/* <Route path="mata-kuliah" element={<MataKuliah />} /> */}
+          {/* <Route path="transaksi" element={<Transaksi />} /> */}
           {/* Tambahkan halaman lainnya di sini */}
         </Route>
       </Routes>

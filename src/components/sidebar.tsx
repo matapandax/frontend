@@ -1,49 +1,87 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { 
-  HomeIcon, 
-  UserGroupIcon, 
-  AcademicCapIcon, 
-  BookOpenIcon, 
-  CashIcon 
+import {
+  HomeIcon,
+  UserGroupIcon,
+  AcademicCapIcon,
+  BookOpenIcon,
+  CashIcon,
+  ChevronDownIcon,
+  MenuIcon
 } from '@heroicons/react/outline';
 
 const Sidebar: React.FC = () => {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const [collapsed, setCollapsed] = useState(false);
+
+  const toggleMenu = (menuName: string) => {
+    setOpenMenu((prev) => (prev === menuName ? null : menuName));
+  };
+
   return (
-    <div className="sidebar">
-      <div className="logo-container">
-        <img src="../assets/images/logo3-e1511767184374 1.png" alt="Telkom University" className="logo" />
+    <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
+      {/* Collapse Button */}
+      <div className="collapse-button" onClick={() => setCollapsed(!collapsed)}>
+        <MenuIcon className="menu-toggle-icon" />
       </div>
-      
+
+      <div className="logo-container">
+        {!collapsed && (
+          <img src="../assets/images/logo3-e1511767184374 1.png" alt="Telkom University" className="logo" />
+        )}
+      </div>
+
       <nav className="nav-menu">
-        <NavLink to="/" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
+        {/* Dashboard */}
+        <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <HomeIcon className="nav-icon" />
-          <span>Dashboard</span>
+          {!collapsed && <span>Dashboard</span>}
         </NavLink>
-        
-        <NavLink to="/peserta" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
-          <UserGroupIcon className="nav-icon" />
-          <span>Peserta</span>
-        </NavLink>
-        
+
+        {/* Peserta with Submenu */}
+        <div className="nav-item-with-submenu">
+          <div className="nav-item" onClick={() => toggleMenu('peserta')}>
+            <UserGroupIcon className="nav-icon" />
+            {!collapsed && (
+              <>
+                <span>Peserta</span>
+                <ChevronDownIcon className={`chevron-icon ${openMenu === 'peserta' ? 'rotate' : ''}`} />
+              </>
+            )}
+          </div>
+          {openMenu === 'peserta' && !collapsed && (
+            <div className="submenu">
+              <NavLink to="/peserta" className={({ isActive }) => isActive ? 'submenu-item active' : 'submenu-item'}>
+                Daftar Peserta
+              </NavLink>
+              <NavLink to="/outbound" className={({ isActive }) => isActive ? 'submenu-item active' : 'submenu-item'}>
+                Outbound
+              </NavLink>
+            </div>
+          )}
+        </div>
+
+        {/* Dosen */}
         <NavLink to="/dosen" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <AcademicCapIcon className="nav-icon" />
-          <span>Dosen</span>
+          {!collapsed && <span>Dosen</span>}
         </NavLink>
-        
+
+        {/* Mata Kuliah */}
         <NavLink to="/mata-kuliah" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <BookOpenIcon className="nav-icon" />
-          <span>Mata Kuliah</span>
+          {!collapsed && <span>Mata Kuliah</span>}
         </NavLink>
-        
+
+        {/* Transaksi */}
         <NavLink to="/transaksi" className={({ isActive }) => isActive ? 'nav-item active' : 'nav-item'}>
           <CashIcon className="nav-icon" />
-          <span>Transaksi</span>
+          {!collapsed && <span>Transaksi</span>}
         </NavLink>
       </nav>
-      
+
       <div className="sidebar-footer">
-        {/* Additional sidebar footer content if needed */}
+        {/* Footer Content */}
       </div>
     </div>
   );

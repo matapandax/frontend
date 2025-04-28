@@ -53,13 +53,13 @@ const Dosen: React.FC = () => {
     <div className="dashboard-container">
       {/* Header */}
       <div className="outbound-header">
-        <h1>Peserta Outbound</h1>
+        <h1>Dosen Baru Terdaftar</h1>
         <p>&lt;Lorem ipsum dolor sit amet, consectetur adipiscing elit&gt;</p>
       </div>
 
       {/* Stat Cards */}
       <div className="stat-cards-grid">
-        {[{ title: "Total Peserta", value: 375 }, { title: "Progress", value: 40 }, { title: "Lulus", value: 312 }, { title: "Tidak Lulus", value: 23 }].map((item, index) => (
+        {[{ title: "Total Dosen", value: 375 }, { title: "Dosen Aktif", value: 40 }, { title: "Dosen Tidak Aktif", value: 312 }, { title: "Dosen Baru Terdaftar", value: 23 }].map((item, index) => (
           <div key={index} className="stat-card-red">
             <h2>{item.title}</h2>
             <div className="stat-number">{item.value}</div>
@@ -74,14 +74,14 @@ const Dosen: React.FC = () => {
           className="chart-box"
           style={{ width: "515px", height: "400px", flex: "none" }}
         >
-          <h3 className="chart-title">Jumlah Peserta per Mata Kuliah</h3>
+          <h3 className="chart-title">Jumlah Dosen per Mata Kuliah</h3>
           <ChartJumlahDosenGender />
         </div>
         <div
           className="chart-box"
           style={{ width: "515px", height: "400px", flex: "none" }}
         >
-          <h3 className="chart-title">Distribusi Gender Peserta</h3>
+          <h3 className="chart-title">Distribusi Gender Dosen</h3>
           <ChartGender />
         </div>
       </div>
@@ -101,7 +101,7 @@ const Dosen: React.FC = () => {
       {/* DataTable Peserta */}
       <div className="outbound-table">
         <DataTable
-          title="Daftar Peserta Outbound"
+          title="Daftar Dosen"
           columns={columns}
           data={data}
           pagination
