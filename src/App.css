@@ -125,7 +125,8 @@ body {
   padding-top: 20px;
   border-top: 1px solid #e5e7eb;
 }
-/* Footer styles */
+/* header Styles */
+
 
 .logo-container {
   padding: 0 20px 20px;
@@ -812,7 +813,7 @@ body {
 }
 
 .logo img {
-  height: 83px;
+  height: 50px
 }
 
 h1 {
