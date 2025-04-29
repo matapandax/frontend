@@ -7,12 +7,14 @@ import Dashboard from './pages/dashboard';
 import Peserta from './pages/peserta';
 import Dosen from './pages/dosen';
 import Detailpeserta from './pages/detailPeserta';
+import Transaksi from './pages/TransactionTable';
 
 import Sidebar from './components/sidebar';
 import Header from './components/header';
 import Footer from './components/footer';
 
 import './App.css';
+import TransactionTable from './pages/TransactionTable';
 
 // 🧩 Layout untuk halaman utama dengan Sidebar & Header
 const MainLayout: React.FC = () => {
@@ -45,7 +47,7 @@ const App: React.FC = () => {
           <Route path="peserta" element={<Peserta />} />
           <Route path="detail-peserta" element={<Detailpeserta />} />
           {/* <Route path="mata-kuliah" element={<MataKuliah />} /> */}
-          {/* <Route path="transaksi" element={<Transaksi />} /> */}
+          {<Route path="transaksi" element={< TransactionTable/>} />}
           {/* Tambahkan halaman lainnya di sini */}
         </Route>
       </Routes>
