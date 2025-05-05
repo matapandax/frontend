@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import StatCard from '../components/statcard';
 import ChartComponent from '../components/chartcomponent';
 import { DashboardStats, ChartData } from '../types/dashboard';
@@ -117,10 +118,12 @@ const Dashboard: React.FC = () => {
       
       <div className="bottom-stats">
         <div className="stat-cards-row">
+          
           <StatCard 
             title="Total Dosen" 
             value={stats.faculty} 
             color="gray" 
+            linkTo='/dosen'
           />
           
           <StatCard 

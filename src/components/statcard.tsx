@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface StatCardProps {
   title: string;
@@ -6,6 +7,7 @@ interface StatCardProps {
   color?: 'gray' | 'red' | 'blue';
   hasDetails?: boolean;
   onViewDetails?: () => void;
+  linkTo?: string; // ➕ link opsional
 }
 
 const StatCard: React.FC<StatCardProps> = ({ 
@@ -13,22 +15,29 @@ const StatCard: React.FC<StatCardProps> = ({
   value, 
   color = 'gray',
   hasDetails = true,
-  onViewDetails
+  onViewDetails,
+  linkTo
 }) => {
   const cardClasses = `stat-card ${color}`;
-  
+
   return (
     <div className={cardClasses}>
       <div className="stat-content">
         <div className="stat-title">{title}</div>
         <div className="stat-value">{value}</div>
       </div>
-      
+
       {hasDetails && (
         <div className="stat-footer">
-          <button className="details-button" onClick={onViewDetails}>
-            Details
-          </button>
+          {linkTo ? (
+            <Link to={linkTo} className="details-button">
+              Details
+            </Link>
+          ) : (
+            <button className="details-button" onClick={onViewDetails}>
+              Details
+            </button>
+          )}
         </div>
       )}
     </div>

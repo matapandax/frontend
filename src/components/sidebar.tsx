@@ -27,7 +27,7 @@ const Sidebar: React.FC = () => {
 
       <div className="logo-container">
         {!collapsed && (
-          <img src="../assets/images/logo3-e1511767184374 1.png" alt="Telkom University" className="logo" />
+          <img src="../assets/images/ide.png" alt="Telkom University" className="logo" />
         )}
       </div>
 
